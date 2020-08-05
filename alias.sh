@@ -45,6 +45,9 @@ alias loadalias='source ~/.alias.sh'
 alias dr='docker run'
 alias drr='docker run --rm'
 alias drri='winpty docker run --rm -it'
+alias de='docker exec'
+alias dei='winpty docker exec -it'
+alias dco='docker container'
 
 # Docker-compose
 alias dc='docker-compose'
