@@ -32,6 +32,7 @@ alias rbtt='tail -n 0 -f ~/Desktop/console-spring-robot.txt'
 # Utils
 alias g='grep'
 alias ggfiles='cut -f1 -d: | sort -u'
+alias ggfilesn='ggfiles | sed "s/.*\///"'
 alias catt='cat /tmp/t'
 alias cattt='cat > /tmp/t'
 alias cattclip='cat > /dev/clipboard'
