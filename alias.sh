@@ -25,10 +25,6 @@ alias gbm="gb --merged"
 alias gr="git remote"
 alias gh="git checkout"
 
-# Start Robot utils
-alias rbtl='less -S +F -i ~/Desktop/console-spring-robot.txt'
-alias rbtt='tail -n 0 -f ~/Desktop/console-spring-robot.txt'
-
 # Utils
 alias g='grep'
 alias ggfiles='cut -f1 -d: | sort -u'
