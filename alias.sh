@@ -45,6 +45,8 @@ alias drri='winpty docker run --rm -it'
 alias de='docker exec'
 alias dei='winpty docker exec -it'
 alias dco='docker container'
+alias dls='docker container ls'
+alias dlsa='dls -a'
 
 # Docker-compose
 alias dc='docker-compose'
