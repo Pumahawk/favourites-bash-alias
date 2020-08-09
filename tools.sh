@@ -9,6 +9,7 @@ function alias-container-actions() {
 	alias ${prefix}lf="docker logs -f ${container}"
 	alias ${prefix}ltf="docker logs --tail=0 -f ${container}"
 	alias ${prefix}bash="winpty docker exec -it ${container} bash"
+	alias ${prefix}sh="winpty docker exec -it ${container} sh"
 	alias ${prefix}e="docker exec ${container}"
 	alias ${prefix}ei="winpty docker exec -it ${container}"
 }
