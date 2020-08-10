@@ -36,6 +36,8 @@ alias catclip='cat /dev/clipboard'
 alias catcliptt='catclip > /tmp/t'
 alias removecolor='sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2})?)?[mGK]//g"'
 alias loadalias='source ~/.alias.sh'
+alias jsonmini='jq -c .'
+alias jsonformat='jq .'
 
 # Docker
 
