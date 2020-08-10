@@ -14,3 +14,10 @@ function alias-container-actions() {
 	alias ${prefix}e="docker exec ${container}"
 	alias ${prefix}ei="winpty docker exec -it ${container}"
 }
+
+function alias-docker-shell-command() {
+	command_name=$1
+	command_container=$2
+	command_run=$3
+	alias d${command_name}='bash -c "export MSYS_NO_PATHCONV=1; winpty bash -c \"docker run --rm -it -v \\\"$(cygpath -w $PWD):/app\\\" -w /app '$command_container' '$command_run'\""'
+}
