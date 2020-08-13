@@ -39,6 +39,8 @@ alias loadalias='source ~/.alias.sh'
 alias jsonmini='jq -c .'
 alias jsonformat='jq .'
 alias histg='history | grep'
+alias envg='env | grep'
+alias dates='date  +%Y%m%d'
 
 # Docker
 
