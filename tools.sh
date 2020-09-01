@@ -27,3 +27,10 @@ function alias-docker-shell-command() {
 	command_run=$3
 	alias d${command_name}='bash -c "export MSYS_NO_PATHCONV=1; winpty bash -c \"docker run --rm -it -v \\\"$(cygpath -w $PWD):/app\\\" -w /app '$command_container' '$command_run'\""'
 }
+
+function alias-ssh-server() {
+	name=$1
+	server=$2
+	alias ssh${name}="ssh $server"
+	alias sftp${name}="sftp $server"
+}
