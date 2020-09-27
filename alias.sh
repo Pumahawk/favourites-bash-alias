@@ -1,6 +1,7 @@
 # Start Alias for git
 alias gc="git commit"
 alias gcm="gc -m"
+alias gcam="gc -am"
 alias gca="gc --amend"
 alias gcan="gca --no-edit"
 alias gd="git diff"
