@@ -3,6 +3,7 @@ function alias-container-actions() {
 	container=$2
 	alias ${prefix}start="docker container start ${container}"
 	alias ${prefix}startl="${prefix}start && ${prefix}ltf"
+	alias ${prefix}pause="docker pause ${container}"
 	alias ${prefix}stop="docker stop ${container}"
 	alias ${prefix}ps="docker container ps -a | grep ${container}"
 	alias ${prefix}status="docker inspect --format '{{ .State.Health.Status }}' ${container}"
