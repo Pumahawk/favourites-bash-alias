@@ -23,10 +23,18 @@ function run-docker-command() {
 }
 
 function alias-docker-shell-command() {
+	user=root
+	case $1 in
+		--user)
+		shift
+		user=$1
+		shift
+		;;
+	esac
 	command_name=$1
 	command_container=$2
 	command_run=$3
-	alias d${command_name}='bash -c "bash -c \"docker run --rm -it -v \\\"$PWD:/app\\\" -w /app '$command_container' '$command_run'\""'
+	alias d${command_name}='bash -c "bash -c \"docker run -u='"$user"' --rm -it -v \\\"$PWD:/app\\\" -w /app '$command_container' '$command_run'\""'
 }
 
 function alias-ssh-server() {
