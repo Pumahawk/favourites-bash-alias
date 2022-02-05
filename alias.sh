@@ -73,3 +73,14 @@ alias dcr='docker-compose run'
 alias dcrr='dcr --rm'
 alias dclt='dcl --tail'
 alias dcltf='dcl --tail=0 -f'
+
+# Kubectl
+alias k='kubectl'
+alias kg='k get'
+alias kgp='kg pod'
+alias kgd='kg deployment'
+alias kc='k config'
+alias kl='k logs'
+alias kp='k port-forward'
+alias kd='k describe'
+
