@@ -25,6 +25,8 @@ alias gbr="gb --remotes"
 alias gbm="gb --merged"
 alias gr="git remote"
 alias gh="git checkout"
+alias gn="git config"
+alias gne="gn user.email"
 
 # Utils
 alias g='grep'
