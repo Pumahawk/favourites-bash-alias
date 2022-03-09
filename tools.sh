@@ -43,3 +43,9 @@ function alias-ssh-server() {
 	alias ssh${name}="ssh $server"
 	alias sftp${name}="sftp $server"
 }
+
+function mvndiff() {
+	C=${MVN_COMMIT-HEAD}
+	PL=""; git diff --name-only $C | sed 's!/.*!!' | uniq | while read line; do PL=${line},$PL; done;
+	mvn -pl "$PL" "$@"
+}
