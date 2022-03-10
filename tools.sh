@@ -46,6 +46,6 @@ function alias-ssh-server() {
 
 function mvndiff() {
 	C=${MVN_COMMIT-HEAD}
-	PL=""; git diff --name-only $C | sed 's!/.*!!' | uniq | while read line; do PL=${line},$PL; done;
+	PL=""; git diff --name-only $C | sed 's!/.*!!' | uniq | while read line; do [ -f $line/pom.xml ] && PL=${line},$PL; done;
 	mvn -pl "$PL" "$@"
 }
