@@ -83,4 +83,6 @@ alias kc='k config'
 alias kl='k logs'
 alias kp='k port-forward'
 alias kd='k describe'
+alias ke='k exec'
+alias kei='ke -it'
 
