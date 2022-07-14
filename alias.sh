@@ -81,3 +81,6 @@ alias kl='k logs'
 alias kp='k port-forward'
 alias kd='k describe'
 
+# Java
+alias javad='java -agentlib:jdwp=transport=dt_socket,server=y,suspend=${JAVAD_SUSPEND:-n},address=${JAVAD_ADDRESS:-0.0.0.0:9090}'
+
