@@ -86,3 +86,6 @@ alias kd='k describe'
 alias ke='k exec'
 alias kei='ke -it'
 
+# Java
+alias javad='java -agentlib:jdwp=transport=dt_socket,server=y,suspend=${JAVAD_SUSPEND:-n},address=${JAVAD_ADDRESS:-0.0.0.0:9090}'
+
