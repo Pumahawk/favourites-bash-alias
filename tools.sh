@@ -49,3 +49,7 @@ function mvndiff() {
 	PL=""; git diff --name-only $C | sed 's!/.*!!' | uniq | while read line; do [ -f $line/pom.xml ] && PL=${line},$PL; done;
 	mvn -pl "$PL" "$@"
 }
+
+function mvncov() {
+	mvn org.jacoco:jacoco-maven-plugin:0.8.7:prepare-agent "$@" org.jacoco:jacoco-maven-plugin:0.8.7:report
+}
