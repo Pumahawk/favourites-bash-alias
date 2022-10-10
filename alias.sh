@@ -89,6 +89,8 @@ alias ke='k exec'
 alias kei='ke -it'
 alias ks='k scale'
 alias ksr='ks --replicas'
+alias kr='k run'
+alias krri='kr --rm -it'
 
 # Java
 alias javad='java -agentlib:jdwp=transport=dt_socket,server=y,suspend=${JAVAD_SUSPEND:-n},address=${JAVAD_ADDRESS:-0.0.0.0:9090}'
