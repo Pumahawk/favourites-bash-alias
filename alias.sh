@@ -44,6 +44,7 @@ alias jsonformat='jq .'
 alias histg='history | grep'
 alias envg='env | grep'
 alias dates='date  +%Y%m%d'
+alias unbuf="stdbuf -o0 -i0"
 
 # Docker
 
