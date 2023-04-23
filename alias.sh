@@ -95,3 +95,9 @@ alias krri='kr --rm -it'
 # Java
 alias javad='java -agentlib:jdwp=transport=dt_socket,server=y,suspend=${JAVAD_SUSPEND:-n},address=${JAVAD_ADDRESS:-0.0.0.0:9090}'
 
+# Rust Cargo
+alias cc='cargo check'
+alias cct='cc --tests'
+alias cb='cargo build'
+alias ct='cargo test'
+
