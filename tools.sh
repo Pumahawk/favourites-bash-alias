@@ -54,5 +54,7 @@ function mvncov() {
 	mvn org.jacoco:jacoco-maven-plugin:0.8.7:prepare-agent "$@" org.jacoco:jacoco-maven-plugin:0.8.7:report
 }
 
-function gchangedate() { DATE=$(date -d "$1"); GIT_COMMITTER_DATE="$DATE" GIT_AUTHOR_DATE="$DATE" git commit --amend --no-edit --date="$DATE" }
-
+function gchangedate() {
+	DATE=$(date -d "$1")
+	GIT_COMMITTER_DATE="$DATE" GIT_AUTHOR_DATE="$DATE" git commit --amend --no-edit --date="$DATE"
+}
