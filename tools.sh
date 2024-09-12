@@ -50,3 +50,16 @@ function gchangedate() {
 	DATE=$(date -d "$1");
 	GIT_COMMITTER_DATE="$DATE" GIT_AUTHOR_DATE="$DATE" git commit --amend --no-edit --date="$DATE";
 }
+
+function kln() {
+	NAME="$1"
+	echo -n "app.kubernetes.io/name=$NAME"
+}
+
+function kgl() {
+	RESOURCE="$1"
+	NAME="$2"
+	shift;shift;
+	kubectl get $RESOURCE -l "app.kubernetes.io/name=$NAME" "$@"
+}
+
