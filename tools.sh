@@ -56,6 +56,11 @@ function kln() {
 	echo -n "app.kubernetes.io/name=$NAME"
 }
 
+function kli() {
+	INSTANCE="$1"
+	echo -n "app.kubernetes.io/instance=$INSTANCE"
+}
+
 function kgl() {
 	RESOURCE="$1"
 	NAME="$2"
