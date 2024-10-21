@@ -31,6 +31,9 @@ alias gbr="gb --remotes"
 alias gbm="gb --merged"
 alias gr="git remote"
 alias gh="git checkout"
+alias gsm="git submodule"
+alias gsmu="gsm update"
+alias gsmur="gsmu --remote"
 
 # Utils
 alias g='grep'
