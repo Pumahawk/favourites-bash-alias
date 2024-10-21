@@ -104,3 +104,6 @@ alias cct='cc --tests'
 alias cb='cargo build'
 alias ct='cargo test'
 
+# Nix
+alias nixs='nix-shell'
+alias nixsp='nixs --pure'
