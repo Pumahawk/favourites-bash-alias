@@ -102,3 +102,12 @@ function git_change_author() {
 	' --tag-name-filter cat -- "$@"
 }
 
+function fgit() {
+	FIND_PATH="${1-.}";
+	find "$FIND_PATH" -name .git
+}
+
+function fpom() {
+	FIND_PATH="${1-.}";
+	find "$FIND_PATH" -name pom.xml
+}
