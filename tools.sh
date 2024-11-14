@@ -76,7 +76,28 @@ function kgl() {
 	kubectl get $RESOURCE -l "app.kubernetes.io/name=$NAME" "$@"
 }
 
-function git_change_author() {
+function git_change_author_email() {
+	EMAIL="$1"
+	CORRECT_EMAIL="$2"
+	shift;
+	shift;
+	git filter-branch --env-filter '
+	EMAIL="'"$EMAIL"'"
+	CORRECT_EMAIL="'"$CORRECT_EMAIL"'"
+
+
+	if [ "$GIT_COMMITTER_EMAIL" = "$EMAIL" ]
+	then
+	    export GIT_COMMITTER_EMAIL="$CORRECT_EMAIL"
+	fi
+	if [ "$GIT_AUTHOR_EMAIL" = "$EMAIL" ]
+	then
+	    export GIT_AUTHOR_EMAIL="$CORRECT_EMAIL"
+	fi
+	' --tag-name-filter cat -- "$@"
+}
+
+function git_change_author_and_email() {
 	OLD_EMAIL="$1"
 	CORRECT_NAME="$2"
 	CORRECT_EMAIL="$3"
