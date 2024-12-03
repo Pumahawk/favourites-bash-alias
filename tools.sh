@@ -132,3 +132,15 @@ function fpom() {
 	FIND_PATH="${1-.}";
 	find "$FIND_PATH" -name pom.xml
 }
+
+function git_find_repo() {
+	P="$1"
+	until [[ -d "$P" ]] && [[ -a "$P"/.git ]]; do
+		if [[ "$P" == "." ]] || [[ "$P" == "/" ]]; then
+			exit 1
+		else
+			P="$(dirname "$P")"
+		fi
+	done;
+	echo "${P%/}"/.git
+}
