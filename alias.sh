@@ -121,6 +121,8 @@ alias krri='kr --rm -it'
 
 # Java
 alias javad='java -agentlib:jdwp=transport=dt_socket,server=y,suspend=${JAVAD_SUSPEND:-n},address=${JAVAD_ADDRESS:-0.0.0.0:9090}'
+alias springdebug='mvn -Dmaven.test.skip spring-boot:run -Dspring-boot.run.profiles=local -Dspring-boot.run.jvmArguments="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005"'
+alias springrun='mvn -Dmaven.test.skip spring-boot:run -Dspring-boot.run.profiles=local'
 
 # Rust Cargo
 alias cc='cargo check'
