@@ -36,6 +36,9 @@ alias ghrd="gh origin/develop"
 alias gsm="git submodule"
 alias gsmu="gsm update"
 alias gsmur="gsmu --remote"
+alias gdes="git describe"
+alias gdest="gdes --tags"
+alias gdesa="gdes --all"
 
 # Utils
 alias g='grep'
