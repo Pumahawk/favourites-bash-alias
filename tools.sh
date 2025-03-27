@@ -144,3 +144,13 @@ function git_find_repo() {
 	done;
 	echo "${P%/}"/.git
 }
+
+# NVIM
+function rnvim() {
+	(
+		export RNVIM_EXEC="$(which nvim)"
+		export RNVIM_SOCKET=/tmp/nvim-$(date +%s);
+		export RNVIM_EDITOR="bash -c '\"\$RNVIM_EXEC\" --server '\$RNVIM_SOCKET' --remote \"\$@\"; read line' rnvim"
+		$RNVIM_EXEC --listen $RNVIM_SOCKET
+	)
+}

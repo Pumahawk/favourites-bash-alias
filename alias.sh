@@ -133,9 +133,3 @@ alias ct='cargo test'
 # Nix
 alias nixs='nix-shell'
 alias nixsp='nixs --pure'
-
-# NVIM
-export RNVIM_EXEC="$(which nvim)"
-export RNVIM_SOCKET=${RNVIM_SOCKET-/tmp/nvim-$(date +%s)}
-export RNVIM_EDITOR="bash -c '\"\$RNVIM_EXEC\" --server '\$RNVIM_SOCKET' --remote \"\$@\"; read line' rnvim"
-alias rnvim='$RNVIM_EXEC --listen $RNVIM_SOCKET'
