@@ -154,3 +154,17 @@ function rnvim() {
 		$RNVIM_EXEC --listen $RNVIM_SOCKET
 	)
 }
+
+if [ -n "${RNVIM_EDITOR}" ]; then
+	function lnvim() {
+		local args=()
+		for arg in "$@"; do
+			if [[ "$arg" = /* || "$arg" == -* ]]; then
+				args+=("$arg")
+			else
+				args+=("$PWD/$arg")
+			fi
+		done
+		bash -c '"$RNVIM_EXEC" --server '$RNVIM_SOCKET' --remote "$@"; read line' rnvim "$args"
+	}
+fi
