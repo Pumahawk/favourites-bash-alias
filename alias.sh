@@ -133,3 +133,8 @@ alias ct='cargo test'
 # Nix
 alias nixs='nix-shell'
 alias nixsp='nixs --pure'
+
+# NVim
+if [ -n "${RNVIM_EDITOR}" ]; then
+	alias lnvim=$RNVIM_EDITOR
+fi
