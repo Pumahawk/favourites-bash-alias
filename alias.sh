@@ -123,6 +123,13 @@ alias krri='kr --rm -it'
 alias javad='java -agentlib:jdwp=transport=dt_socket,server=y,suspend=${JAVAD_SUSPEND:-n},address=${JAVAD_ADDRESS:-0.0.0.0:9090}'
 alias springdebug='mvn -Dmaven.test.skip spring-boot:run -Dspring-boot.run.profiles=local -Dspring-boot.run.jvmArguments="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005"'
 alias springrun='mvn -Dmaven.test.skip spring-boot:run -Dspring-boot.run.profiles=local'
+alias fjava='find . -name \*.java'
+alias jfmt='mvn spotless:apply -B'
+alias jtest='mvn install'
+alias jinstall='mvn clean install'
+alias jtinstall='jinstall -Dmaven.test.skip'
+alias jsinstall='jinstall -DskipTests'
+
 
 # Rust Cargo
 alias cc='cargo check'
