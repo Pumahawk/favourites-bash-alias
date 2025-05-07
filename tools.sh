@@ -55,7 +55,7 @@ function mvncov() {
 }
 
 function gchangedate() {
-	DATE=$(date -d "$1")
+	DATE=$(date -Iseconds -d "$1")
 	GIT_COMMITTER_DATE="$DATE" GIT_AUTHOR_DATE="$DATE" git commit --amend --no-edit --date="$DATE"
 }
 
@@ -78,7 +78,7 @@ function kgl() {
 
 function git_get_merged_commit() {
 	local commit_id="${1?Add commit id}"; shift;
-	git log --first-parent --merges  --pretty=format:"%H" "$@" | while read line; do [ -n "$(git log --pretty=format:"%H" ${line}^..${line}^2 | grep ${commit_id})" ] && echo $line; done
+	git log --first-parent --merges  --pretty=format:"%H" "$@" | while read -r line; do git log --pretty=format:"%H" "${line}"^.."${line}"^2 | grep -qFx "${commit_id}" && echo "$line"; done
 }
 
 function git_change_author_email() {
