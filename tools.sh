@@ -76,6 +76,11 @@ function kgl() {
 	kubectl get $RESOURCE -l "app.kubernetes.io/name=$NAME" "$@"
 }
 
+function git_get_merged_commit() {
+	local commit_id="${1?Add commit id}"; shift;
+	git log --first-parent --merges  --pretty=format:"%H" "$@" | while read line; do [ -n "$(git log --pretty=format:"%H" ${line}^..${line}^2 | grep ${commit_id})" ] && echo $line; done
+}
+
 function git_change_author_email() {
 	EMAIL="$1"
 	CORRECT_EMAIL="$2"
