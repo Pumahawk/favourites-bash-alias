@@ -148,3 +148,11 @@ alias ct='cargo test'
 # Nix
 alias nixs='nix-shell'
 alias nixsp='nixs --pure'
+
+# systemd & journalctl
+alias syd='systemctl --user'
+alias syds='syd --type=service'
+alias sydsf='syd list-unit-files --type=service'
+
+alias jlog='journalctl --user'
+alias jlogc='jlog -o cat'
