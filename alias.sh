@@ -63,7 +63,10 @@ alias envg='env | grep'
 alias dates='date  +%Y%m%d'
 alias udate='date -Iseconds'
 alias udated='udate -d'
-
+alias psu='ps u --sort -%mem -u $(id -u)'
+alias ibash='bash -b'
+alias ibashl='ibash -l'
+alias ibashle='ibashl 2>/dev/null'
 # Docker
 
 alias dr='docker run'
