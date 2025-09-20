@@ -155,6 +155,8 @@ alias nixsp='nixs --pure'
 # systemd & journalctl
 alias syd='systemctl --user'
 alias syds='syd --type=service'
+alias sydu='syd daemon-reload'
+alias sydr='syd reset-failed'
 alias sydsf='syd list-unit-files --type=service'
 
 alias jlog='journalctl --user'
