@@ -7,14 +7,14 @@ function bind_custom_output() {
 	READLINE_POINT=$(($READLINE_POINT + ${#out}))
 }
 
-bind -x '"\en\ep":bind_custom_pastete_last_out'
+bind -x '"\em\ep":bind_custom_pastete_last_out'
 function bind_custom_pastete_last_out() {
 	bind_custom_output "$BIND_CUSTOM_LAST_OUTPUT"
 }
 
 # Git
 
-bind -x '"\en\egb":bind_custom_git_branch'
+bind -x '"\em\egb":bind_custom_git_branch'
 function bind_custom_git_branch() {
 	out="$(git branch --format="%(refname:short)" | fzf)"
 	bind_custom_output "$out"
@@ -22,25 +22,25 @@ function bind_custom_git_branch() {
 
 # Kubernetes
 
-bind -x '"\en\eks":bind_custom_kubernetes_get_services'
+bind -x '"\em\eks":bind_custom_kubernetes_get_services'
 function bind_custom_kubernetes_get_services() {
 	out="$(kgs -o name | fzf)"
 	bind_custom_output "$out"
 }
 
-bind -x '"\en\ekd":bind_custom_kubernetes_get_deployments'
+bind -x '"\em\ekd":bind_custom_kubernetes_get_deployments'
 function bind_custom_kubernetes_get_deployments() {
 	out="$(kgd -o name | fzf)"
 	bind_custom_output "$out"
 }
 
-bind -x '"\en\ekp":bind_custom_kubernetes_get_pods'
+bind -x '"\em\ekp":bind_custom_kubernetes_get_pods'
 function bind_custom_kubernetes_get_pods() {
 	out="$(kgp -o name | fzf)"
 	bind_custom_output "$out"
 }
 
-bind -x '"\en\ekn":bind_custom_kubernetes_get_namespaces'
+bind -x '"\em\ekn":bind_custom_kubernetes_get_namespaces'
 function bind_custom_kubernetes_get_namespaces() {
 	out="$(kg namespace -o custom-columns=":metadata.name" --no-headers | fzf)"
 	bind_custom_output "$out"
@@ -48,7 +48,7 @@ function bind_custom_kubernetes_get_namespaces() {
 
 # Systemd
 
-bind -x '"\en\esu":bind_custom_systemd_get_local_units'
+bind -x '"\em\esu":bind_custom_systemd_get_local_units'
 function bind_custom_systemd_get_local_units() {
 	out="$(sydsf | cut -d" " -f1 | fzf)"
 	bind_custom_output "$out"
