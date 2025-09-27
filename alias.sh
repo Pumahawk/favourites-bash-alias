@@ -158,6 +158,8 @@ alias syds='syd --type=service'
 alias sydu='syd daemon-reload'
 alias sydr='syd reset-failed'
 alias sydsf='syd list-unit-files --type=service'
+alias syde='syd show-environment'
+alias sydes='syd set-environment'
 
 alias jlog='journalctl --user'
 alias jlogc='jlog -o cat'
