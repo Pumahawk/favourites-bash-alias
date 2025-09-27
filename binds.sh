@@ -50,6 +50,6 @@ function bind_custom_kubernetes_get_namespaces() {
 
 bind -x '"\em\esu":bind_custom_systemd_get_local_units'
 function bind_custom_systemd_get_local_units() {
-	out="$(sydsf | cut -d" " -f1 | fzf)"
+	out="$(sydsf | cut -d" " -f1 | grep \\.service | fzf)"
 	bind_custom_output "$out"
 }
