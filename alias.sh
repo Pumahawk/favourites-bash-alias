@@ -163,9 +163,10 @@ alias sydes='syd set-environment'
 
 alias jlog='journalctl --user'
 alias jlogc='jlog -o cat'
+alias jlog-usage='journalctl --disk-usage'
 
 # Mise
 alias m="mise"
 alias mt="m tasks"
 alias mr="m run"
-alias mx="m exec"
+alias mx="m exec --"
