@@ -53,3 +53,11 @@ function bind_custom_systemd_get_local_units() {
 	out="$(sydsf | cut -d" " -f1 | grep \\.service | fzf)"
 	bind_custom_output "$out"
 }
+
+# Mise
+
+bind -x '"\em\emt":bind_custom_mise_get_tasks'
+function bind_custom_mise_get_tasks() {
+	out="$(mise tasks ls | cut -d\  -f 1 | fzf)"
+	bind_custom_output "$out"
+}
