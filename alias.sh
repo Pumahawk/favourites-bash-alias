@@ -158,15 +158,25 @@ alias syds='syd --type=service'
 alias sydu='syd daemon-reload'
 alias sydr='syd reset-failed'
 alias sydsf='syd list-unit-files --type=service'
+alias sydsu='sydsf | grep -o "^[^[:space:]]*\.service"'
+alias sydsz='sydsu | fzf -m'
 alias syde='syd show-environment'
 alias sydes='syd set-environment'
+
+alias wsyds='SYSTEMD_COLORS=1 watch --color systemctl --user --type=service'
 
 alias jlog='journalctl --user'
 alias jlogc='jlog -o cat'
 alias jlog-usage='journalctl --disk-usage'
+
+
 
 # Mise
 alias m="mise"
 alias mt="m tasks"
 alias mr="m run"
 alias mx="m exec --"
+
+# rg
+alias rg='rg --vimgrep'
+alias rgc='rg --color=always'

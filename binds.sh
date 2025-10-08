@@ -1,5 +1,7 @@
 # Utils
 
+alias selectm='fzf -m | tr \\n " "'
+
 function bind_custom_output() {
 	local out="$1"
 	BIND_CUSTOM_LAST_OUTPUT="$out"
@@ -16,7 +18,7 @@ function bind_custom_pastete_last_out() {
 
 bind -x '"\em\egb":bind_custom_git_branch'
 function bind_custom_git_branch() {
-	out="$(git branch --format="%(refname:short)" | fzf)"
+	out="$(git branch --all --format="%(refname:short)" | selectm)"
 	bind_custom_output "$out"
 }
 
@@ -24,25 +26,25 @@ function bind_custom_git_branch() {
 
 bind -x '"\em\eks":bind_custom_kubernetes_get_services'
 function bind_custom_kubernetes_get_services() {
-	out="$(kgs -o name | fzf)"
+	out="$(kgs -o name | selectm)"
 	bind_custom_output "$out"
 }
 
 bind -x '"\em\ekd":bind_custom_kubernetes_get_deployments'
 function bind_custom_kubernetes_get_deployments() {
-	out="$(kgd -o name | fzf)"
+	out="$(kgd -o name | selectm)"
 	bind_custom_output "$out"
 }
 
 bind -x '"\em\ekp":bind_custom_kubernetes_get_pods'
 function bind_custom_kubernetes_get_pods() {
-	out="$(kgp -o name | fzf)"
+	out="$(kgp -o name | selectm)"
 	bind_custom_output "$out"
 }
 
 bind -x '"\em\ekn":bind_custom_kubernetes_get_namespaces'
 function bind_custom_kubernetes_get_namespaces() {
-	out="$(kg namespace -o custom-columns=":metadata.name" --no-headers | fzf)"
+	out="$(kg namespace -o custom-columns=":metadata.name" --no-headers | selectm)"
 	bind_custom_output "$out"
 }
 
@@ -50,7 +52,7 @@ function bind_custom_kubernetes_get_namespaces() {
 
 bind -x '"\em\esu":bind_custom_systemd_get_local_units'
 function bind_custom_systemd_get_local_units() {
-	out="$(sydsf | cut -d" " -f1 | grep \\.service | fzf)"
+	out="$(sydsf | cut -d" " -f1 | grep -o '^[^[:space:]]*\.service' | selectm)"
 	bind_custom_output "$out"
 }
 
@@ -58,6 +60,6 @@ function bind_custom_systemd_get_local_units() {
 
 bind -x '"\em\emt":bind_custom_mise_get_tasks'
 function bind_custom_mise_get_tasks() {
-	out="$(mise tasks ls | cut -d\  -f 1 | fzf)"
+	out="$(mise tasks ls | cut -d\  -f 1 | selectm)"
 	bind_custom_output "$out"
 }
