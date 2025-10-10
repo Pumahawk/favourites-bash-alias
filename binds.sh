@@ -22,6 +22,19 @@ function bind_custom_git_branch() {
 	bind_custom_output "$out"
 }
 
+bind -x '"\em\egd":bind_custom_git_dirs'
+function bind_custom_git_dirs() {
+	out="$(find . -maxdepth 5 -name .git | fzf)"
+	bind_custom_output "$out"
+}
+
+bind -x '"\em\egD":bind_custom_git_dirs_env'
+function bind_custom_git_dirs_env() {
+	out="$(find . -maxdepth 5 -name .git | fzf)"
+	bind_custom_output "GIT_DIR=$out git "
+	BIND_CUSTOM_LAST_OUTPUT="$out"
+}
+
 # Kubernetes
 
 bind -x '"\em\eks":bind_custom_kubernetes_get_services'
