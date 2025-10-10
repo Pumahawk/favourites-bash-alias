@@ -128,6 +128,7 @@ alias ksr='ks --replicas'
 alias krs='k rollout restart'
 alias kr='k run'
 alias krri='kr --rm -it'
+alias kconfigexport='kubectl config view --minify --flatten'
 
 # Java
 alias javad='java -agentlib:jdwp=transport=dt_socket,server=y,suspend=${JAVAD_SUSPEND:-n},address=${JAVAD_ADDRESS:-0.0.0.0:9090}'
