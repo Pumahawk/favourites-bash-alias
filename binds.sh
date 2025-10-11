@@ -76,3 +76,11 @@ function bind_custom_mise_get_tasks() {
 	out="$(mise tasks ls | cut -d\  -f 1 | selectm)"
 	bind_custom_output "$out"
 }
+
+# Java
+#
+bind -x '"\em\ejp":bind_custom_java_find_pom'
+function bind_custom_java_find_pom() {
+	out="$(find . -name pom.xml | cut -d\  -f 1 | selectm)"
+	bind_custom_output "$out"
+}
