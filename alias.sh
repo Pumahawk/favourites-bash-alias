@@ -141,7 +141,7 @@ alias jtest='mvn install'
 alias jinstall='mvn clean install'
 alias jtinstall='jinstall -Dmaven.test.skip'
 alias jsinstall='jinstall -DskipTests'
-alias mvneffectivepom='mvnd -q  help:effective-pom -Doutput=/tmp/effective-pom.xml; cat /tmp/effective-pom.xml'
+function mvneffectivepom() { mvn -q  help:effective-pom -Doutput=/tmp/effective-pom.xml "$@"; cat /tmp/effective-pom.xml; }
 
 
 # Rust Cargo
