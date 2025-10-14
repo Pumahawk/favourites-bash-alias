@@ -163,6 +163,7 @@ alias sydsu='sydsf | grep -o "^[^[:space:]]*\.service"'
 alias sydsz='sydsu | fzf -m'
 alias syde='syd show-environment'
 alias sydes='syd set-environment'
+alias sydrun='systemd-run --user'
 
 alias wsyds='SYSTEMD_COLORS=1 watch --color systemctl --user --type=service'
 
