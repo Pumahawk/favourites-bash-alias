@@ -141,6 +141,7 @@ alias jtest='mvn install'
 alias jinstall='mvn clean install'
 alias jtinstall='jinstall -Dmaven.test.skip'
 alias jsinstall='jinstall -DskipTests'
+alias mvneffectivepom='mvnd -q  help:effective-pom -Doutput=/tmp/effective-pom.xml; cat /tmp/effective-pom.xml'
 
 
 # Rust Cargo
@@ -161,9 +162,12 @@ alias sydr='syd reset-failed'
 alias sydsf='syd list-unit-files --type=service'
 alias sydsu='sydsf | grep -o "^[^[:space:]]*\.service"'
 alias sydsz='sydsu | fzf -m'
+alias sydw='syd show'
 alias syde='syd show-environment'
 alias sydes='syd set-environment'
 alias sydrun='systemd-run --user'
+alias sydtop='systemd-cgtop'
+alias sydpr='systemctl set-property --user'
 
 alias wsyds='SYSTEMD_COLORS=1 watch --color systemctl --user --type=service'
 
