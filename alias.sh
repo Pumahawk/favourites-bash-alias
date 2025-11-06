@@ -67,6 +67,9 @@ alias psu='ps u --sort -%mem -u $(id -u)'
 alias ibash='bash -b'
 alias ibashl='ibash -l'
 alias ibashle='ibashl 2>/dev/null'
+alias clip='xclip -selection clipboard'
+alias oclip='xclip -o -selection clipboard'
+
 # Docker
 
 alias dr='docker run'
@@ -141,8 +144,10 @@ alias jtest='mvn install'
 alias jinstall='mvn clean install'
 alias jtinstall='jinstall -Dmaven.test.skip'
 alias jsinstall='jinstall -DskipTests'
-function mvneffectivepom() { mvn -q  help:effective-pom -Doutput=/tmp/effective-pom.xml "$@"; cat /tmp/effective-pom.xml; }
-
+function mvneffectivepom() {
+  mvn -q help:effective-pom -Doutput=/tmp/effective-pom.xml "$@"
+  cat /tmp/effective-pom.xml
+}
 
 # Rust Cargo
 alias cc='cargo check'
@@ -174,8 +179,6 @@ alias wsyds='SYSTEMD_COLORS=1 watch --color systemctl --user --type=service'
 alias jlog='journalctl --user'
 alias jlogc='jlog -o cat'
 alias jlog-usage='journalctl --disk-usage'
-
-
 
 # Mise
 alias m="mise"
