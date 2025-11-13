@@ -84,3 +84,11 @@ function bind_custom_java_find_pom() {
 	out="$(find . -name pom.xml | cut -d\  -f 1 | selectm)"
 	bind_custom_output "$out"
 }
+
+# Util
+
+bind -x '"\em\C-r":bind_custom_util_history_search'
+function bind_custom_util_history_search() {
+	out="$(history | fzf --tac | sed 's/ *[0-9]* *//')"
+	bind_custom_output "$out"
+}
