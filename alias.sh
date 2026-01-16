@@ -69,6 +69,7 @@ alias ibashl='ibash -l'
 alias ibashle='ibashl 2>/dev/null'
 alias clip='xclip -selection clipboard'
 alias oclip='xclip -o -selection clipboard'
+alias lesst='less +F'
 
 # Docker
 
@@ -145,7 +146,7 @@ alias jinstall='mvn clean install'
 alias jtinstall='jinstall -Dmaven.test.skip'
 alias jsinstall='jinstall -DskipTests'
 function mvneffectivepom() {
-  mvn -q help:effective-pom -Doutput=/tmp/effective-pom.xml "$@"
+  mvnd -q help:effective-pom -Doutput=/tmp/effective-pom.xml "$@"
   cat /tmp/effective-pom.xml
 }
 
@@ -179,6 +180,7 @@ alias wsyds='SYSTEMD_COLORS=1 watch --color systemctl --user --type=service'
 alias jlog='journalctl --user'
 alias jlogc='jlog -o cat'
 alias jlog-usage='journalctl --disk-usage'
+function jlogu() { jlog -o json "$@" |  jq -r '"\(._SYSTEMD_USER_UNIT) \(.MESSAGE)"'; }
 
 # Mise
 alias m="mise"
