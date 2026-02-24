@@ -180,7 +180,7 @@ alias wsyds='SYSTEMD_COLORS=1 watch --color systemctl --user --type=service'
 alias jlog='journalctl --user'
 alias jlogc='jlog -o cat'
 alias jlog-usage='journalctl --disk-usage'
-function jlogu() { jlog -o json "$@" |  jq -r '"\(._SYSTEMD_USER_UNIT) \(.MESSAGE)"'; }
+function jlogu() { jlog -o json "$@" | jq -r '"\(._SYSTEMD_USER_UNIT) \(.MESSAGE)"'; }
 
 # Mise
 alias m="mise"
