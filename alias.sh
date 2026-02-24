@@ -189,5 +189,5 @@ alias mr="m run"
 alias mx="m exec --"
 
 # rg
-alias rg='rg --vimgrep'
+alias rg='rg --no-heading'
 alias rgc='rg --color=always'
