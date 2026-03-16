@@ -1,6 +1,8 @@
 # Utils
 
-alias selectm='fzf -m | tr \\n " "'
+function selectm() {
+  fzf --layout=reverse -m "$@" | tr \\n " "
+}
 
 function bind_custom_output() {
 	local out="$1"
@@ -24,13 +26,13 @@ function bind_custom_git_branch() {
 
 bind -x '"\em\egd":bind_custom_git_dirs'
 function bind_custom_git_dirs() {
-	out="$(find . -maxdepth 5 -name .git | fzf)"
+	out="$(find . -maxdepth 5 -name .git | fzf --layout=reverse)"
 	bind_custom_output "$out"
 }
 
 bind -x '"\em\egD":bind_custom_git_dirs_env'
 function bind_custom_git_dirs_env() {
-	out="$(find . -maxdepth 5 -name .git | fzf)"
+	out="$(find . -maxdepth 5 -name .git | fzf --layout=reverse)"
 	bind_custom_output "GIT_DIR=$out git "
 	BIND_CUSTOM_LAST_OUTPUT="$out"
 }
@@ -58,6 +60,12 @@ function bind_custom_kubernetes_get_pods() {
 bind -x '"\em\ekn":bind_custom_kubernetes_get_namespaces'
 function bind_custom_kubernetes_get_namespaces() {
 	out="$(kg namespace -o custom-columns=":metadata.name" --no-headers | selectm)"
+	bind_custom_output "$out"
+}
+
+bind -x '"\em\edc":bind_custom_docker_get_container'
+function bind_custom_docker_get_container() {
+	out="$(docker container ls --format '{{.ID}} {{.Names}} {{.Image}}' | column -s \  -t | selectm --accept-nth 2 -n 2 )"
 	bind_custom_output "$out"
 }
 
@@ -89,6 +97,6 @@ function bind_custom_java_find_pom() {
 
 bind -x '"\em\C-r":bind_custom_util_history_search'
 function bind_custom_util_history_search() {
-	out="$(history | fzf --tac | sed 's/ *[0-9]* *//')"
+	out="$(history | fzf --layout=reverse --tac | sed 's/ *[0-9]* *//')"
 	bind_custom_output "$out"
 }
