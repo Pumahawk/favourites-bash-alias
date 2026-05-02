@@ -24,6 +24,12 @@ function bind_custom_git_branch() {
 	bind_custom_output "$out"
 }
 
+bind -x '"\em\egt":bind_custom_git_tag'
+function bind_custom_git_tag() {
+	out="$(git tag --format="%(refname:short)" | selectm)"
+	bind_custom_output "$out"
+}
+
 bind -x '"\em\egd":bind_custom_git_dirs'
 function bind_custom_git_dirs() {
 	out="$(find . -maxdepth 5 -name .git | fzf --layout=reverse)"
