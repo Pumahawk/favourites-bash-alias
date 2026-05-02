@@ -71,7 +71,7 @@ function bind_custom_kubernetes_get_namespaces() {
 
 bind -x '"\em\edc":bind_custom_docker_get_container'
 function bind_custom_docker_get_container() {
-	out="$(docker container ls --format '{{.ID}} {{.Names}} {{.Image}}' | column -s \  -t | selectm --accept-nth 2 -n 2 )"
+	out="$(docker container ls -a --format '{{.ID}} {{.Names}} {{.Image}}' | column -s \  -t | selectm --accept-nth 2 -n 2 )"
 	bind_custom_output "$out"
 }
 
