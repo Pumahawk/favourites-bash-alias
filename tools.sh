@@ -153,9 +153,21 @@ function git_find_repo() {
 # For the first instance use:
 # git_find_object $HASH_OBJECT --find-object=$HASH_OBJECT --all --reverse
 function git_find_object() {
+  all=0
+  while [ -n "$1" ]; do
+    case "$1" in
+      --all)
+        all=1
+        shift
+        ;;
+      *)
+        break
+      ;;
+    esac
+  done
   object="${1?Missing object}"
   shift
-  git log --pretty=%H "$@" | while read line; do if git cat-file -p $line | grep -q "$object" || git ls-tree -r $line | grep -q "$object"; then echo $line; break; fi; done
+  git log --pretty=%H "$@" | while read line; do if git cat-file -p $line | grep -q "$object" || git ls-tree -r $line | grep -q "$object"; then echo $line; if [ "$all" == "0" ]; then break; fi; fi; done
 }
 
 # NVIM
