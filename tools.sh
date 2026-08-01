@@ -150,6 +150,14 @@ function git_find_repo() {
 	echo "${P%/}"/.git
 }
 
+# For the first instance use:
+# git_find_object $HASH_OBJECT --find-object=$HASH_OBJECT --all --reverse
+function git_find_object() {
+  object="${1?Missing object}"
+  shift
+  git log --pretty=%H "$@" | while read line; do if git cat-file -p $line | grep -q "$object" || git ls-tree -r $line | grep -q "$object"; then echo $line; break; fi; done
+}
+
 # NVIM
 function rnvim() {
 	(
