@@ -69,8 +69,8 @@ alias psu='ps u --sort -%mem -u $(id -u)'
 alias ibash='bash -b'
 alias ibashl='ibash -l'
 alias ibashle='ibashl 2>/dev/null'
-alias clip='xclip -selection clipboard'
-alias oclip='xclip -o -selection clipboard'
+alias clip='cat > /dev/clipboard'
+alias oclip='cat /dev/clipboard'
 alias lesst='less +F'
 alias unbuf="stdbuf -o0 -i0"
 
